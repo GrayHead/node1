@@ -7,6 +7,13 @@ class UserService {
         return await userModel.findAll();
     }
 
+
+    async updateUser(id, newName) {
+        let userModel = db.getModel('User');
+        userModel.update({name: newName}, {where: {id}});
+
+
+    }
 }
 
 module.exports = new UserService();
